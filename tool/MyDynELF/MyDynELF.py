@@ -10,7 +10,7 @@ class MyDynELF(object):
 
 	# leak arbitrary func addr
 	def get_elf_entry(self, got,leak):
-        entry = l64(leak(got, 0x8))
+        entry = u64(leak(got, 0x8))
         print '[+]Libc entry : 0x%x' % entry
         return entry
 
