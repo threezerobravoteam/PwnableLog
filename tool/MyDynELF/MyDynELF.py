@@ -99,8 +99,8 @@ class MyDynELF(object):
 	def lookup(self, leak, ptr, symbol):
 		entry                   = self.get_elf_entry(ptr, leak)
 		elf_base                = self.get_elf_base(entry, leak)
-        phdr                    = self.find_Phdr(elf_base, leak)
-        dyn_section             = self.findDynamic(phdr, elf_base, leak)
-        dt_sym_tab, dt_str_tab  = self.findDynTable(dyn_section, leak)
-        func_address            = self.findSymbol(dt_sym_tab, dt_str_tab, symbol, elf_base, leak)
-        return func_address
+		phdr                    = self.find_Phdr(elf_base, leak)
+		dyn_section             = self.findDynamic(phdr, elf_base, leak)
+		dt_sym_tab, dt_str_tab  = self.findDynTable(dyn_section, leak)
+		func_address            = self.findSymbol(dt_sym_tab, dt_str_tab, symbol, elf_base, leak)
+		return func_address
