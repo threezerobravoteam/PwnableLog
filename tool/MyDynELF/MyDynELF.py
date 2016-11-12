@@ -5,14 +5,15 @@
 
 class MyDynELF(object):
 	"""docstring for MyDynELF"""
+
 	def __init__(self, BITS = 64):
 		self.BITS = 64
 
 	# leak arbitrary func addr
 	def get_elf_entry(self, got,leak):
-        entry = u64(leak(got, 0x8))
-        print '[+]Libc entry : 0x%x' % entry
-        return entry
+		entry = u64(leak(got, 0x8))
+		print '[+]Libc entry : 0x%x' % entry
+		return entry
 
 	#get libc base addr
 	def get_elf_base(self,entry,leak):
@@ -95,9 +96,9 @@ class MyDynELF(object):
 		print "[+]Got func : 0x%x" % (symbol_addr)
 		return symbol_addr
 
-	 def lookup(self, leak, ptr, symbol):
-        entry                   = self.get_elf_entry(ptr, leak)
-        elf_base                = self.get_elf_base(entry, leak)
+	def lookup(self, leak, ptr, symbol):
+		entry                   = self.get_elf_entry(ptr, leak)
+		elf_base                = self.get_elf_base(entry, leak)
         phdr                    = self.find_Phdr(elf_base, leak)
         dyn_section             = self.findDynamic(phdr, elf_base, leak)
         dt_sym_tab, dt_str_tab  = self.findDynTable(dyn_section, leak)
