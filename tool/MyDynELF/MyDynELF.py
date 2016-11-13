@@ -3,7 +3,7 @@
 # author:muhe
 # based on http://uaf.io/exploitation/misc/2016/04/02/Finding-Functions.html
 
-class MyDynELF(object):
+class MyDynELF:
 	"""docstring for MyDynELF"""
 
 	def __init__(self, BITS = 64):
