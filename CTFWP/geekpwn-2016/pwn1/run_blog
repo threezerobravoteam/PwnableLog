@@ -1,0 +1,5 @@
+#! /usr/bin/python
+
+import os
+os.chdir('/home/muhe/geekpwn-2016/pwn1')
+os.system('python Blog-py.py')
