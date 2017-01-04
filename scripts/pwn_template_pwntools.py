@@ -13,11 +13,7 @@ else:
 
 
 def main():
-	pass
-
+    p.interactive()
 
 if __name__ == '__main__':
 	main()
-
-
-p.interactive()
