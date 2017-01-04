@@ -11,13 +11,8 @@ else:
 io = zio(target, timeout=10000, print_read=COLORED(RAW, 'red'), print_write=COLORED(RAW, 'green'))
 
 
-
 def main():
-	pass
+    io.interact()
 
 if __name__ =='__main__':
 	main()
-
-
-
-io.interact()
