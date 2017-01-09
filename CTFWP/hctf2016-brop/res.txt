@@ -1,0 +1,14 @@
+wront addr : 0x600018	WelCome my friend,Do you know password?
+
+wront addr : 0x600e10	WelCome my friend,Do you know password?
+
+wront addr : 0x600e18	WelCome my friend,Do you know password?
+
+wront addr : 0x600e40	WelCome my friend,Do you know password?
+
+wront addr : 0x600e50	WelCome my friend,Do you know password?
+ok addr : 0x601018	ELF
+WelCome my friend,Do you know password?
+
+wront addr : 0x601028	WelCome my friend,Do you know password?
+
