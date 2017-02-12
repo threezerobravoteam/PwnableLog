@@ -1,4 +1,4 @@
-# pwnbale log
+# pwnable log
 
 #### 1. CTF/WG Writeup
 
