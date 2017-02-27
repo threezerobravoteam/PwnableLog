@@ -74,7 +74,7 @@ class Fuzzer(object):
             print ("[*]Fork Error!")
 
 def main():
-    f = Fuzzer('./target')
+    f = Fuzzer('./target_bin_file')
     f.exploit()
 
 if __name__ == '__main__':
