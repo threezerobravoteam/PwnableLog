@@ -7,6 +7,8 @@ LOCAL = True
 
 if LOCAL:
 	p = process('filename')
+        #p = process('filename',raw=False)
+        #this for Windows10 subsystem
 else:
 	p = remote('127.0.0.1',10001)
 
