@@ -5,8 +5,10 @@ context.log_level = 'debug'
 
 LOCAL = True
 
+env = {'LD_PRELOAD':'libc.so.6'}
+
 if LOCAL:
-    p = process('filename')
+    p = process('filename',env=env)
     #p = process('filename',raw=False)
     #this for Windows10 subsystem
 else:
