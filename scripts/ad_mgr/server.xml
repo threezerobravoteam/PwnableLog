@@ -1,0 +1,128 @@
+<ServerList>
+    <Serverinfo name="server1">
+        <Host>120.76.232.31</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server2">
+        <Host>119.23.131.93</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server3">
+        <Host>120.76.245.20</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server4">
+        <Host>120.76.234.212</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server5">
+        <Host>119.23.134.145</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server6">
+        <Host>120.76.208.192</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server7">
+        <Host>120.76.44.223</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server8">
+        <Host>120.76.220.116</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server9">
+        <Host>119.23.151.43</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server10">
+        <Host>119.23.172.193</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server11">
+        <Host>120.77.232.165</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server12">
+        <Host>119.23.149.148</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server13">
+        <Host>119.23.144.222</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server14">
+        <Host>119.23.134.48</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server15">
+        <Host>120.77.232.174</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server16">
+        <Host>119.23.129.92</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server17">
+        <Host>119.23.127.173</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server18">
+        <Host>119.23.152.140</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server19">
+        <Host>120.77.54.138</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="server20">
+        <Host>119.23.152.188</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+    <Serverinfo name="npc">
+        <Host>120.77.54.181</Host>
+        <Port>23333</Port>
+        <Username>server_info_here</Username>
+        <Password>server_info_here</Password>
+    </Serverinfo>
+</ServerList>
